@@ -3,6 +3,7 @@ require("dotenv").config()
 const tasks = require("./routes/tasks")
 const connectDB = require("./db/connection.js")
 const notFound = require("./middleware/not-found")
+const errorHandler = require("./middleware/error-handler")
 
 const app = express()
 
@@ -16,6 +17,8 @@ app.use(express.json())
 app.use("/api/v1/tasks", tasks)
 
 app.use(notFound)
+
+app.use(errorHandler)
 
 
 const starter = async () =>{
