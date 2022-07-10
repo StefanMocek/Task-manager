@@ -18,8 +18,6 @@ app.use("/api/v1/tasks", tasks)
 app.use(notFound)
 
 
-
-
 const starter = async () =>{
     try {
         await connectDB(process.env.MONGO_URI)
